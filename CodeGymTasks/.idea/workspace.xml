@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8a9c2848-0864-419d-ba1c-a0669c6ee00f" name="Default" comment="Empty Project">
+    <list default="true" id="8a9c2848-0864-419d-ba1c-a0669c6ee00f" name="Default" comment="In progress">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/8.Games/src/com/codegym/games/spaceinvaders/Conditions.tcs" beforeDir="false" afterPath="$PROJECT_DIR$/8.Games/src/com/codegym/games/spaceinvaders/Conditions.tcs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/8.Games/src/com/codegym/games/spaceinvaders/SpaceInvadersGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/8.Games/src/com/codegym/games/spaceinvaders/SpaceInvadersGame.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CodeGymPlugin.properties" beforeDir="false" afterPath="$PROJECT_DIR$/CodeGymPlugin.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out.log" beforeDir="false" afterPath="$PROJECT_DIR$/out.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/8.Games/com/codegym/games/spaceinvaders/Conditions.tcs" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/8.Games/com/codegym/games/spaceinvaders/Conditions.tcs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/8.Games/com/codegym/games/spaceinvaders/gameobjects/Ship.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/8.Games/com/codegym/games/spaceinvaders/gameobjects/Ship.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -416,7 +419,21 @@
       <option name="project" value="LOCAL" />
       <updated>1658914004704</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Empty Project">
+      <created>1658933122153</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1658933122153</updated>
+    </task>
+    <task id="LOCAL-00003" summary="In progress">
+      <created>1658933205776</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1658933205776</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -480,7 +497,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Empty Project" />
-    <option name="LAST_COMMIT_MESSAGE" value="Empty Project" />
+    <MESSAGE value="In progress" />
+    <option name="LAST_COMMIT_MESSAGE" value="In progress" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/Instruction.png">
