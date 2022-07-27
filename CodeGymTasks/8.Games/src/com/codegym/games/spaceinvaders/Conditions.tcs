@@ -1,34 +1,67 @@
-taskKey="com.codegym.games.spaceinvaders.part01"\n\nSpace Invaders (Part 1/34)
+taskKey="com.codegym.games.spaceinvaders.part20"\n\nSpace Invaders (Part 20/34)
 
-Today we invite you to write an exciting game &mdash; Space Invaders. As always, we&#39;ll start with the rules.
-
-The object of the game is for the player to destroy every alien spaceship.
-The player controls a laser cannon and can move it left and right at the bottom of the screen.
-The player has an unlimited supply of &quot;laser projectiles&quot;. When the player hits an alien ship, he or she kills it and receives some points.
-When the game begins, the alien ships are located at the top of the screen. They move horizontally and, upon reaching the edge of the playing field,
-descend to the next row, gradually getting closer to the player.
-As the number of alien ships decreases, the remaining ships begin to move faster.
-After all the aliens are destroyed, the player wins.
-The aliens try to destroy the player&#39;s cannon by shooting at it. If an alien hits the cannon, the player loses.
-If even one alien reaches the bottom of the screen, the alien invasion succeeds and the game ends.
-A &quot;boss&quot; is located above the rows of alien ships. If the player destroys the boss, he or she receives bonus points.
-Let&#39;s begin. To start, we&#39;ll need a SpaceInvadersGame class that inherits the Game class. It has methods that will help us write the game.
-
-Now we&#39;ll set up the playing field. To start the game, we need to override the initialize() method, which in turn must call the setScreenSize(int, int) method.
-
-This method sets the playing field&#39;s width and height, which it takes as arguments. We&#39;ll store them in variables.
-
-To complete the Space Invaders task successfully, we recommend that you read this article about the &quot;Games&quot; section.
-It contains information that you&#39;ll find helpful when writing games.
+We&#39;ll create the nextFrame method in the Ship class to switch to the next animation frame.
+It sets the matrix field to the next animation frame, if possible.
+We&#39;ll extend the functionality of the draw method by overriding it so that it calls the superclass&#39;s method
+for drawing and the nextFrame method for changing animation frames.
 
 
 Требования:
-1.	There must be a public SpaceInvadersGame class.
-2.	The SpaceInvadersGame class must inherit the Game class.
-3.	The SpaceInvadersGame class must have a public static final int WIDTH field, initialized to 64 when it is declared.
-4.	The SpaceInvadersGame class must have a public static final int HEIGHT field, initialized to 64 when it is declared.
-5.	In the SpaceInvadersGame class, the initialize() method of the Game parent class must be overridden.
-6.	The Game class&#39;s setScreenSize(int, int) method must be called with arguments (WIDTH, HEIGHT) in the initialize() method.
-7.	The SpaceInvadersGame class must have a statement that imports the entire contents of the com.codegym.engine.cell package.
+1.	The Ship class must have a public void nextFrame() method.
+2.	The nextFrame() method must increase the frameIndex field by one.
+3.	The nextFrame() method must not do anything if frameIndex is greater than or equal to the number of frames in the frames list.
+4.	The nextFrame() method must set the matrix field equal to the frame in the frames list whose index is equal to frameIndex.
+5.	In the Ship class, the void draw(Game) method of the parent class must be overridden.
+6.	The Ship class&#39;s draw(Game game) method must call the superclass&#39;s method with game as the argument.
+7.	The Ship class&#39;s draw(Game game) method must call the nextFrame() method.
+8.	The Ship class must import the com.codegym.engine.cell.Game class.
+
+
+Space Invaders (Part 20/34)
+
+We&#39;ll implement logic to &quot;kill&quot; the player by overriding the kill() method. In addition to setting the isAlive flag to false,
+it will add an animation of the ship&#39;s destruction.
+
+
+
+Space Invaders (Part 20/34)
+
+At this stage, we&#39;ll prepare an animation for when a ship explodes. To do this, we need a List&lt;int[][]&gt; frames field,
+which will store a list of matrices representing the animation frames.
+We&#39;ll also need a frameIndex field that stores the index of the current animation frame.
+We&#39;ll set the animation frames in the setAnimatedView method. It takes an array of frames (matrices) and puts them in the frames list.
+Finally, we&#39;ll implement the setStaticView method, which sets the ship&#39;s initial matrix.
+
+
+
+Space Invaders (Part 20/34)
+
+We&#39;ll give the PlayerShip class a method that checks whether enemy projectiles have hit the player&#39;s ship (the isCollision() method in the GameObject class).
+If there is a hit, it will &quot;kill&quot; the ship and the projectile. We&#39;ll also add the player&#39;s ship to the class.
+We&#39;ll draw it and add the collision check in the appropriate method.
+
+
+
+Space Invaders (Part 20/34)
+
+Now we&#39;ll create the player&#39;s ship. We need the PlayerShip class for this. Its constructor will set the ship&#39;s coordinates so that
+the ship is displayed centered at the bottom of the screen. The constructor sets the ship&#39;s appearance by setting the PLAYER matrix,
+which we&#39;ve provided for you in the ShapeMatrix class. A ship can have two states: &quot;alive&quot; or &quot;dead&quot;. To represent these states,
+we&#39;ll add an isAlive field to the Ship parent class. When a projectile hits a ship, they (the projectile and the ship) are destroyed,
+so we&#39;ll add a kill method. When it is called, we&#39;ll &quot;kill&quot; the ship and the projectile.
+
+
+
+Space Invaders (Part 20/34)
+
+We&#39;ll store all the enemy projectiles in an enemyBullets field in the SpaceInvadersGame class. We&#39;ll add code to draw and move them in appropriate methods.
+To remove projectiles that are no longer relevant, we&#39;ll create and implement a removeDeadBullets() method in the SpaceInvadersGame class.
+To remove the projectiles, you can either use an iterator, or create a copy of the enemyBullets list and run through it in a loop.
+If we determine that a projectile needs to be removed, we&#39;ll call enemyBullets.remove(bullet).
+Projectiles are irrelevant if they have flown off the screen or if they have hit their target (isAlive == false).
+Let&#39;s add a check() helper function. At this stage, it will call the removeDeadBullets() method. Later, it will perform various checks at each step of the game.
+We&#39;ll call the fire() method on the fleet with the same frequency, potentially causing an enemy ship to fire.
+If a shot is fired, the method returns a projectile, which must be added to the list.
+
 
 
