@@ -6,6 +6,9 @@ import com.codegym.games.spaceinvaders.ShapeMatrix;
 public class EnemyShip extends Ship
 {
     public int score =15;
+
+
+
     public EnemyShip(double x, double y) {
         super(x, y);
         setStaticView(ShapeMatrix.ENEMY);
@@ -40,7 +43,8 @@ public class EnemyShip extends Ship
             return;
         }
         isAlive = false;
-        setAnimatedView(false, ShapeMatrix.KILL_ENEMY_ANIMATION_FIRST, ShapeMatrix.KILL_ENEMY_ANIMATION_SECOND, ShapeMatrix.KILL_ENEMY_ANIMATION_THIRD);
 
+
+        setAnimatedView(false, ShapeMatrix.KILL_ENEMY_ANIMATION_FIRST, ShapeMatrix.KILL_ENEMY_ANIMATION_SECOND, ShapeMatrix.KILL_ENEMY_ANIMATION_THIRD);
     }
 }

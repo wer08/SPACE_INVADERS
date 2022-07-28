@@ -36,12 +36,22 @@ public class EnemyFleet
 
     private void createShips()
     {
+        int random = 0;
         ships = new ArrayList<EnemyShip>();
         for (int x = 0; x < COLUMNS_COUNT; x++)
         {
             for (int y = 0; y < ROWS_COUNT; y++)
             {
-                ships.add(new EnemyShip(x*STEP,y*STEP +12)) ;
+                random = (int)(Math.random() *100);
+                System.out.println(random);
+                if(random<5)
+                {
+                    ships.add(new EnemyShipInvincibility(x*STEP,y*STEP +12));
+                }
+                else
+                {
+                    ships.add(new EnemyShip(x * STEP, y * STEP + 12));
+                }
             }
         }
         ships.add(new Boss(STEP * COLUMNS_COUNT / 2 - ShapeMatrix.BOSS_ANIMATION_FIRST.length / 2 - 1 , 5));

@@ -17,6 +17,11 @@ public class SpaceInvadersGame extends Game
     public static final int HEIGHT = 64;
     public static final int DIFFICULTY = 5;
     private static final int PLAYER_BULLETS_MAX =1;
+    private boolean isInvincible = false;
+
+    public boolean isInvincible() {
+        return isInvincible;
+    }
 
     private List<Bullet> enemyBullets;
     private List<Bullet> playerBullets;

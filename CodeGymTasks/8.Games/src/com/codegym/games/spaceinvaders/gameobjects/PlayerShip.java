@@ -8,6 +8,14 @@ import java.util.List;
 
 public class PlayerShip extends Ship
 {
+    public static boolean isInvincible = false;
+
+    public static int count =0;
+
+    public static void setInvincible(boolean invincible)
+    {
+        isInvincible = invincible;
+    }
     private Direction direction = Direction.UP;
 
     public Direction getDirection() {
@@ -28,6 +36,7 @@ public class PlayerShip extends Ship
     }
     public void checkHit(List<Bullet> bullets)
     {
+
         if(bullets.isEmpty())
         {
             return;
@@ -38,12 +47,27 @@ public class PlayerShip extends Ship
             {
                 for (Bullet bullet:bullets)
                 {
+
                     if(bullet.isAlive)
                     {
                         if (isCollision(bullet))
                         {
-                            kill();
-                            bullet.kill();
+                            if(isInvincible)
+                            {
+                                count++;
+                                System.out.println(count);
+                                if(count<=2)
+                                bullet.kill();
+                                else
+                                {
+                                    setInvincible(false);
+                                }
+                            }
+                            else
+                            {
+                                bullet.kill();
+                                kill();
+                            }
                         }
                     }
                 }

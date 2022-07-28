@@ -9,6 +9,8 @@ import java.util.List;
 public class Ship extends GameObject
 {
     public boolean isAlive = true;
+
+
     private List<int[][]> frames;
     private int frameIndex;
 
