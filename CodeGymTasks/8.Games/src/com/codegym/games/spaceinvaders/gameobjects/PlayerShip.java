@@ -9,6 +9,7 @@ import java.util.List;
 public class PlayerShip extends Ship
 {
     public static boolean isInvincible = false;
+    public boolean change = false;
 
     public static int count =0;
 
@@ -52,22 +53,18 @@ public class PlayerShip extends Ship
                     {
                         if (isCollision(bullet))
                         {
-                            if(isInvincible)
+                            System.out.println(count);
+                            if (count == 1)
                             {
-                                count++;
-                                System.out.println(count);
-                                if(count<=2)
-                                bullet.kill();
-                                else
-                                {
-                                    setInvincible(false);
-                                }
+                                change = true;
                             }
-                            else
+                            if(count == 2)
                             {
-                                bullet.kill();
-                                kill();
+                                setInvincible(false);
+                                change = false;
                             }
+                            bullet.kill();
+                            kill();
                         }
                     }
                 }
@@ -82,10 +79,18 @@ public class PlayerShip extends Ship
             return;
         else
         {
-            isAlive = false;
-            setAnimatedView(false, ShapeMatrix.KILL_PLAYER_ANIMATION_FIRST, ShapeMatrix.KILL_PLAYER_ANIMATION_SECOND, ShapeMatrix.KILL_PLAYER_ANIMATION_THIRD, ShapeMatrix.DEAD_PLAYER);
+            if(PlayerShip.isInvincible)
+            {
+                count++;
+            }
+            else
+            {
+                isAlive = false;
+                setAnimatedView(false, ShapeMatrix.KILL_PLAYER_ANIMATION_FIRST, ShapeMatrix.KILL_PLAYER_ANIMATION_SECOND, ShapeMatrix.KILL_PLAYER_ANIMATION_THIRD, ShapeMatrix.DEAD_PLAYER);
+            }
         }
     }
+
 
     public void move()
     {

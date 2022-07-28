@@ -19,6 +19,11 @@ public class ShapeMatrix {
             {0, 6, 6, 6, 0},
             {6, 6, 6, 6, 6}
     };
+    public static final int[][] PLAYER_IMMUNE = new int[][]{
+            {0, 20, 20, 20, 0},
+            {20, 20, 20, 20, 20},
+            {20, 20, 20, 20, 20}
+    };
 
     public static final int[][] DEAD_PLAYER = new int[][]{
             {0, 0, 0, 0, 0},

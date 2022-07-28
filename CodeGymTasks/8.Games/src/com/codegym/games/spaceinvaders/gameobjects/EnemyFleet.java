@@ -5,6 +5,7 @@ import com.codegym.games.spaceinvaders.Direction;
 import com.codegym.games.spaceinvaders.ShapeMatrix;
 import com.codegym.games.spaceinvaders.SpaceInvadersGame;
 
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -43,7 +44,6 @@ public class EnemyFleet
             for (int y = 0; y < ROWS_COUNT; y++)
             {
                 random = (int)(Math.random() *100);
-                System.out.println(random);
                 if(random<5)
                 {
                     ships.add(new EnemyShipInvincibility(x*STEP,y*STEP +12));
@@ -152,9 +152,20 @@ public class EnemyFleet
                     flag = ship.isCollision(bullet);
                     if (flag && bullet.isAlive && ship.isAlive)
                     {
-                        bullet.kill();
-                        ship.kill();
-                        score += ship.score;
+                        if(ship instanceof EnemyShipInvincibility)
+                        {
+                            PlayerShip.setInvincible(true);
+                            PlayerShip.count = 0;
+                            bullet.kill();
+                            ship.kill();
+                            score += ship.score;
+                        }
+                        else
+                        {
+                            bullet.kill();
+                            ship.kill();
+                            score += ship.score;
+                        }
                     }
                 }
             }

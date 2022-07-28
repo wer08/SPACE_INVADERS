@@ -112,6 +112,7 @@ public class SpaceInvadersGame extends Game
         moveSpaceObjects();
         setScore(score);
         Bullet bullet = enemyFleet.fire(this);
+
         if(bullet != null)
         {
             enemyBullets.add(bullet);
@@ -179,6 +180,14 @@ public class SpaceInvadersGame extends Game
         {
             playerShip.win();
             stopGameWithDelay();
+        }
+        if(PlayerShip.isInvincible)
+        {
+            playerShip.setStaticView(ShapeMatrix.PLAYER_IMMUNE);
+        }
+        if(playerShip.change)
+        {
+            playerShip.setStaticView(ShapeMatrix.PLAYER);
         }
         if(!playerShip.isAlive)
         {
