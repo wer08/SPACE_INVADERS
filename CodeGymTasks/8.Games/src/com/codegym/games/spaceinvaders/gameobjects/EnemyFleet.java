@@ -8,6 +8,7 @@ import com.codegym.games.spaceinvaders.SpaceInvadersGame;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.ListIterator;
 
 
 public class EnemyFleet
@@ -18,6 +19,7 @@ public class EnemyFleet
     private List<EnemyShip> ships;
 
     private Direction direction = Direction.RIGHT;
+
 
 
     public EnemyFleet()
@@ -42,6 +44,7 @@ public class EnemyFleet
                 ships.add(new EnemyShip(x*STEP,y*STEP +12)) ;
             }
         }
+        ships.add(new Boss(STEP * COLUMNS_COUNT / 2 - ShapeMatrix.BOSS_ANIMATION_FIRST.length / 2 - 1 , 5));
     }
     private double getLeftBorder()
     {
@@ -123,6 +126,66 @@ public class EnemyFleet
                return ships.get(game.getRandomNumber(ships.size())).fire();
            }
         }
+    }
+    public int checkHit(List<Bullet> bullets)
+    {
+        int score = 0;
+        if(bullets.isEmpty())
+            return score;
+        else
+        {
+            boolean flag = false;
+            for (EnemyShip ship : ships)
+            {
+                for (Bullet bullet : bullets)
+                {
+                    flag = ship.isCollision(bullet);
+                    if (flag && bullet.isAlive && ship.isAlive)
+                    {
+                        bullet.kill();
+                        ship.kill();
+                        score += ship.score;
+                    }
+                }
+            }
+        }
+        return score;
+    }
+
+    public void deleteHiddenShips()
+    {
+        EnemyShip ship;
+        ListIterator<EnemyShip> iterator = ships.listIterator();
+        while (iterator.hasNext())
+        {
+            ship = iterator.next();
+            if(!ship.isVisible())
+            {
+                iterator.remove();
+            }
+        }
+
+    }
+
+    public double getBottomBorder()
+    {
+        List<Double> yShips = new ArrayList<>();
+        if(!ships.isEmpty())
+        {
+            for (EnemyShip ship : ships) {
+                yShips.add(ship.y + ship.height);
+            }
+            Collections.sort(yShips);
+            return yShips.get(yShips.size() - 1);
+        }
+        else
+        {
+            return 0;
+        }
+    }
+    public int getShipCount()
+    {
+        return ships.size();
     }
 
 }

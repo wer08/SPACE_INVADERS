@@ -16,8 +16,10 @@ public class SpaceInvadersGame extends Game
     public static final int WIDTH = 64;
     public static final int HEIGHT = 64;
     public static final int DIFFICULTY = 5;
+    private static final int PLAYER_BULLETS_MAX =1;
 
     private List<Bullet> enemyBullets;
+    private List<Bullet> playerBullets;
 
     private EnemyFleet enemyFleet;
 
@@ -28,6 +30,8 @@ public class SpaceInvadersGame extends Game
     private boolean isGameStopped;
 
     private int animationsCount;
+
+    private int score;
 
     @Override
     public void initialize()
@@ -43,8 +47,10 @@ public class SpaceInvadersGame extends Game
         enemyFleet = new EnemyFleet();
         enemyBullets = new ArrayList<Bullet>();
         playerShip = new PlayerShip();
+        playerBullets = new ArrayList<Bullet>();
         isGameStopped = false;
         animationsCount = 0;
+        score = 0;
         drawScene();
         setTurnTimer(40);
     }
@@ -53,6 +59,13 @@ public class SpaceInvadersGame extends Game
         drawField();
         enemyFleet.draw(this);
         for (Bullet bullets:enemyBullets)
+        {
+            if( bullets != null)
+            {
+                bullets.draw(this);
+            }
+        }
+        for (Bullet bullets:playerBullets)
         {
             if( bullets != null)
             {
@@ -92,6 +105,7 @@ public class SpaceInvadersGame extends Game
     {
         check();
         moveSpaceObjects();
+        setScore(score);
         Bullet bullet = enemyFleet.fire(this);
         if(bullet != null)
         {
@@ -102,8 +116,16 @@ public class SpaceInvadersGame extends Game
     private void moveSpaceObjects()
     {
         enemyFleet.move();
+        playerShip.move();
 
         for (Bullet bullet:enemyBullets)
+        {
+            if(bullet!=null)
+            {
+                bullet.move();
+            }
+        }
+        for (Bullet bullet:playerBullets)
         {
             if(bullet!=null)
             {
@@ -119,9 +141,21 @@ public class SpaceInvadersGame extends Game
                 Bullet bullet = iterator.next();
                 if(bullet != null)
                 {
-                    if ( bullet.y >= HEIGHT - 1 || !bullet.isAlive)
+                    if ( bullet.y >= HEIGHT - 2 || !bullet.isAlive)
                     {
                         iterator.remove();
+                    }
+                }
+            }
+        ListIterator<Bullet> iterator2 = playerBullets.listIterator();
+            while (iterator2.hasNext())
+            {
+                Bullet bullet = iterator2.next();
+                if(bullet != null)
+                {
+                    if ( bullet.y + bullet.height < 0 || !bullet.isAlive)
+                    {
+                        iterator2.remove();
                     }
                 }
             }
@@ -129,7 +163,18 @@ public class SpaceInvadersGame extends Game
     private void check()
     {
         playerShip.checkHit(enemyBullets);
+        score += enemyFleet.checkHit(playerBullets);
+        enemyFleet.deleteHiddenShips();
         removeDeadBullets();
+        if(enemyFleet.getBottomBorder() >= playerShip.y)
+        {
+            playerShip.kill();
+        }
+        if(enemyFleet.getShipCount() == 0)
+        {
+            playerShip.win();
+            stopGameWithDelay();
+        }
         if(!playerShip.isAlive)
         {
             stopGameWithDelay();
@@ -157,5 +202,52 @@ public class SpaceInvadersGame extends Game
         {
             stopGame(playerShip.isAlive);
         }
+    }
+
+    @Override
+    public void onKeyPress(Key key) {
+        if(key == Key.SPACE&&isGameStopped)
+        {
+            createGame();
+        }
+        if(key == Key.SPACE)
+        {
+            Bullet bullet = playerShip.fire();
+            if(bullet != null && playerBullets.size() < PLAYER_BULLETS_MAX)
+            {
+                playerBullets.add(bullet);
+            }
+        }
+        if(key == Key.LEFT)
+        {
+            playerShip.setDirection(Direction.LEFT);
+        }
+        if(key == Key.RIGHT)
+        {
+            playerShip.setDirection((Direction.RIGHT));
+        }
+    }
+
+    @Override
+    public void onKeyReleased(Key key)
+    {
+        if(key == Key.LEFT&&playerShip.getDirection()==Direction.LEFT)
+        {
+            playerShip.setDirection(Direction.UP);
+        }
+        if(key == Key.RIGHT&&playerShip.getDirection()==Direction.RIGHT)
+        {
+            playerShip.setDirection(Direction.UP);
+        }
+    }
+
+    @Override
+    public void setCellValueEx(int x, int y, Color cellColor, String value)
+    {
+        if(x < 0 || x >= WIDTH || y < 0 || y>= HEIGHT)
+        {
+            return;
+        }
+        super.setCellValueEx(x, y, cellColor, value);
     }
 }

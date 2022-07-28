@@ -11,6 +11,8 @@ public class Ship extends GameObject
     public boolean isAlive = true;
     private List<int[][]> frames;
     private int frameIndex;
+
+    private boolean loopAnimation = false;
     public Ship(double x, double y) {
         super(x, y);
     }
@@ -30,8 +32,9 @@ public class Ship extends GameObject
     {
         isAlive = false;
     }
-    public void setAnimatedView(int[][]... viewFrames)
+    public void setAnimatedView(boolean isLoopAnimation,int[][]... viewFrames)
     {
+        loopAnimation = isLoopAnimation;
         setMatrix(viewFrames[0]);
         frames = Arrays.asList(viewFrames);
         frameIndex = 0;
@@ -39,20 +42,37 @@ public class Ship extends GameObject
 
     public void nextFrame()
     {
-        if(frameIndex >= frames.size() -1)
+        frameIndex++;
+
+        if (frameIndex >= frames.size())
         {
-            return;
+            if (loopAnimation)
+            {
+                frameIndex = 0;
+            }
+            else
+            {
+                return;
+            }
         }
-        else
-        {
-            frameIndex++;
-            setMatrix(frames.get(frameIndex));
-        }
+        matrix = frames.get(frameIndex);
     }
 
     @Override
-    public void draw(Game game) {
+    public void draw(Game game)
+    {
         super.draw(game);
         nextFrame();
+    }
+    public boolean isVisible()
+    {
+        if(!isAlive&&frameIndex>=frames.size())
+        {
+            return false;
+        }
+        else
+        {
+            return true;
+        }
     }
 }

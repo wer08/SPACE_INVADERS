@@ -1,68 +1,68 @@
-taskKey="com.codegym.games.spaceinvaders.part21"\n\nSpace Invaders (Part 21/34)
+taskKey="com.codegym.games.spaceinvaders.part34"\n\nSpace Invaders (Part 34/34)
 
-The game ends when the player wins or loses. Let&#39;s implement the stopGame method, which will stop the game and display an appropriate message on the screen.
-You decide on the exact wording of the messages about winning and losing. If a projectile hits a player, the explosion animation must be displayed before the game
-is stopped. To do this, in the stopGameWithDelay method, we&#39;ll call the stopGame method with a delay.
-In the check method, if the player is &quot;dead&quot;, you need to call stopGameWithDelay to start a countdown to when the game will stop.
+Congratulations! The game is done! Run it and see what happens.
+If you have time and motivation, you can improve the game by adding some features of your own.
+For example:
+- add other types of ships;
+- change the number of cannons on the ships;
+- add new types of projectiles;
+- change the scoring system: for example, the more quickly a ship is destroyed, the more points it gives;
+- add bunkers for the player;
+- give bonuses for hitting a certain ship: for example, temporary invincibility, super weapons, etc.;
+- in the event of a win, advance to a harder level;
+- and whatever else you can dream up! :)
+You can publish the finished game on CodeGym. But first, you need to check your solution to make the Publish button active.
+The game will be available to all users in the &quot;Games&quot; section.
+You can also share it with your friends on social networks. Wouldn&#39;t it be great if they played your version of Space Invaders?
+After you publish your game, write brief instructions (the possible actions, the keys/buttons required for the game)
+and describe the features of your implementation in the comments.
 
 
 Требования:
-1.	The SpaceInvadersGame class must have a private boolean isGameStopped field.
-2.	The isGameStopped field must be initialized to false in the createGame() method before the call to the drawScene() method.
-3.	The SpaceInvadersGame class must have a private int animationsCount field.
-4.	The animationsCount field must be initialized to 0 in the createGame() method before the call to the drawScene() method.
-5.	The SpaceInvadersGame class must have a private void stopGame(boolean isWin) method.
-6.	The stopGame(boolean isWin) method must set the isGameStopped field to true.
-7.	In the stopGame(boolean isWin) method, you need to call the stopTurnTimer() method.
-8.	In the stopGame(boolean isWin) method, you need to call the showMessageDialog(Color, String, Color, int) method if isWin is true. Pass Color.GREEN as the text color.
-9.	In the stopGame(boolean isWin) method, you need to call the showMessageDialog(Color, String, Color, int) method if isWin is false. Pass Color.RED as the text color.
-10.	The SpaceInvadersGame class must have a private void stopGameWithDelay() method.
-11.	The stopGameWithDelay() method must increase the animationsCount field by one.
-12.	In the stopGameWithDelay() method, you need to call the stopGame(boolean) method with playerShip.isAlive as the argument if the animationsCount field is greater than or equal to 10.
-13.	In the SpaceInvadersGame class&#39;s check() method, you need to call the stopGameWithDelay() method if the player&#39;s ship is NOT alive.
+1.	Run the game and play.
 
 
-Space Invaders (Part 21/34)
+Space Invaders (Part 34/34)
 
-We&#39;ll create the nextFrame method in the Ship class to switch to the next animation frame.
-It sets the matrix field to the next animation frame, if possible.
-We&#39;ll extend the functionality of the draw method by overriding it so that it calls the superclass&#39;s method
-for drawing and the nextFrame method for changing animation frames.
+At this stage, we&#39;ll add scorekeeping to the game. The player gets 15 points for each ordinary ship and 100 points for the boss.
+It will be most convenient to keep score in the checkHit() method, after reworking it a little.
+To store the total score, we&#39;ll add a score variable in the SpaceInvadersGame class. We&#39;ll display it on the screen using the Game class&#39;s setScore method.
 
 
 
-Space Invaders (Part 21/34)
+Space Invaders (Part 34/34)
 
-We&#39;ll implement logic to &quot;kill&quot; the player by overriding the kill() method. In addition to setting the isAlive flag to false,
-it will add an animation of the ship&#39;s destruction.
-
-
-
-Space Invaders (Part 21/34)
-
-At this stage, we&#39;ll prepare an animation for when a ship explodes. To do this, we need a List&lt;int[][]&gt; frames field,
-which will store a list of matrices representing the animation frames.
-We&#39;ll also need a frameIndex field that stores the index of the current animation frame.
-We&#39;ll set the animation frames in the setAnimatedView method. It takes an array of frames (matrices) and puts them in the frames list.
-Finally, we&#39;ll implement the setStaticView method, which sets the ship&#39;s initial matrix.
+The game is lost not only if the player&#39;s ship is destroyed, but also if the enemy fleet reaches the player&#39;s ship.
+To determine the coordinates of the lower edge of the enemy fleet, we&#39;ll add a getBottomBorder() method.
+If all the enemies are destroyed, the player wins. For convenience, we&#39;ll add a getShipCount(), method that will return the number of ships remaining in the enemy fleet.
+If the number is 0, you need to call the stopGameWithDelay() method and call the win() method on the playerShip object.
+This method replaces the player&#39;s ship matrix with ShapeMatrix.WIN_PLAYER.
+We&#39;ll check the number of ships remaining in the enemy fleet and whether they have reached the player&#39;s ship in the check() method.
 
 
 
-Space Invaders (Part 21/34)
+Space Invaders (Part 34/34)
 
-We&#39;ll give the PlayerShip class a method that checks whether enemy projectiles have hit the player&#39;s ship (the isCollision() method in the GameObject class).
-If there is a hit, it will &quot;kill&quot; the ship and the projectile. We&#39;ll also add the player&#39;s ship to the class.
-We&#39;ll draw it and add the collision check in the appropriate method.
+Let&#39;s make the boss animate continuously. To do this, we need to give the setAnimatedView method an isLoopAnimation parameter responsible
+for indicating whether the animation should loop. This parameter is used to properly set the loopAnimation field.
+If the loopAnimation field is true, the nextFrame method repeats the frames by resetting frameIndex.
+As a result, you need to refactor the parameters in places where the setAnimatedView method is called.
 
 
 
-Space Invaders (Part 21/34)
+Space Invaders (Part 34/34)
 
-Now we&#39;ll create the player&#39;s ship. We need the PlayerShip class for this. Its constructor will set the ship&#39;s coordinates so that
-the ship is displayed centered at the bottom of the screen. The constructor sets the ship&#39;s appearance by setting the PLAYER matrix,
-which we&#39;ve provided for you in the ShapeMatrix class. A ship can have two states: &quot;alive&quot; or &quot;dead&quot;. To represent these states,
-we&#39;ll add an isAlive field to the Ship parent class. When a projectile hits a ship, they (the projectile and the ship) are destroyed,
-so we&#39;ll add a kill method. When it is called, we&#39;ll &quot;kill&quot; the ship and the projectile.
+Now we&#39;ll teach the boss to shoot. Depending on the animation frame, the boss will shoot from different cannons.
+We&#39;ll also override the kill() method, where we&#39;ll set the value of the isAlive field and set the frames of the explosion animation.
+
+
+
+Space Invaders (Part 34/34)
+
+It&#39;s time to create the enemy boss. To make him look tougher, we&#39;ll add an animation when he moves.
+If the animation changes with every step, it will move too quickly.
+To create the desired effect, you need to change the frame once every 10 steps.
+That&#39;s why we need to override the nextFrame method and add a frameCount variable that will count steps.
 
 
 
