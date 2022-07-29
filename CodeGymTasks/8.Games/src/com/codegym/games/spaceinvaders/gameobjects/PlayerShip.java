@@ -117,7 +117,26 @@ public class PlayerShip extends Ship
             x = SpaceInvadersGame.WIDTH - this.width;
         }
     }
-
+    public List<Bullet> fireLaser()
+    {
+        List<Bullet> bulletList = new ArrayList<>();
+        if(!this.isAlive)
+        {
+            return null;
+        }
+        else if(isHItDoubleShot)
+        {
+            System.out.println("DOUBLE SHOT ACTIVATED");
+            bulletList.add(new Laser(x , y - ShapeMatrix.BULLET.length, Direction.UP));
+            bulletList.add(new Laser(x + 4, y - ShapeMatrix.BULLET.length, Direction.UP));
+            return bulletList;
+        }
+        else
+        {
+            bulletList.add(new Laser(x + 2, y - ShapeMatrix.BULLET.length, Direction.UP));
+            return bulletList;
+        }
+    }
     @Override
     public List<Bullet> fire()
     {
@@ -128,7 +147,6 @@ public class PlayerShip extends Ship
         }
         else if(isHItDoubleShot)
         {
-            System.out.println("DOUBLE SHOT ACTIVATED");
             bulletList.add(new Bullet(x , y - ShapeMatrix.BULLET.length, Direction.UP));
             bulletList.add(new Bullet(x + 4, y - ShapeMatrix.BULLET.length, Direction.UP));
             return bulletList;

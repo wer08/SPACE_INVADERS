@@ -160,20 +160,29 @@ public class EnemyFleet
                         {
                             PlayerShip.setInvincible(true);
                             PlayerShip.count = 0;
-                            bullet.kill();
+                            if(!(bullet instanceof Laser))
+                            {
+                                bullet.kill();
+                            }
                             ship.kill();
                             score += ship.score;
                         }
                         else if (ship instanceof EnemyShipDoubleAttack)
                         {
                             PlayerShip.isHItDoubleShot = true;
-                            bullet.kill();
+                            if(!(bullet instanceof Laser))
+                            {
+                                bullet.kill();
+                            }
                             ship.kill();
                             score += ship.score;
                         }
                         else
                         {
-                            bullet.kill();
+                            if(!(bullet instanceof Laser))
+                            {
+                                bullet.kill();
+                            }
                             ship.kill();
                             score += ship.score;
                         }

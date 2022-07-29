@@ -46,6 +46,13 @@ public class ShapeMatrix {
             {2},
             {2}
     };
+    public static final int[][] LASER = new int[][]{
+
+            {2},
+            {2},
+            {2},
+            {2}
+    };
 
     public static final int[][] KILL_ENEMY_ANIMATION_FIRST = new int[][]{
             {4, 4, 4},

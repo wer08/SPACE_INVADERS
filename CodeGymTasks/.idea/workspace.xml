@@ -1,19 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8a9c2848-0864-419d-ba1c-a0669c6ee00f" name="Default" comment="Added option to be invincible">
+    <list default="true" id="8a9c2848-0864-419d-ba1c-a0669c6ee00f" name="Default" comment="Added double shot bonus(lasting 5 shots)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/8.Games/src/com/codegym/games/spaceinvaders/ShapeMatrix.java" beforeDir="false" afterPath="$PROJECT_DIR$/8.Games/src/com/codegym/games/spaceinvaders/ShapeMatrix.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/8.Games/src/com/codegym/games/spaceinvaders/SpaceInvadersGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/8.Games/src/com/codegym/games/spaceinvaders/SpaceInvadersGame.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/8.Games/src/com/codegym/games/spaceinvaders/gameobjects/EnemyFleet.java" beforeDir="false" afterPath="$PROJECT_DIR$/8.Games/src/com/codegym/games/spaceinvaders/gameobjects/EnemyFleet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/8.Games/src/com/codegym/games/spaceinvaders/gameobjects/EnemyShip.java" beforeDir="false" afterPath="$PROJECT_DIR$/8.Games/src/com/codegym/games/spaceinvaders/gameobjects/EnemyShip.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/8.Games/src/com/codegym/games/spaceinvaders/gameobjects/PlayerShip.java" beforeDir="false" afterPath="$PROJECT_DIR$/8.Games/src/com/codegym/games/spaceinvaders/gameobjects/PlayerShip.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/8.Games/src/com/codegym/games/spaceinvaders/gameobjects/Ship.java" beforeDir="false" afterPath="$PROJECT_DIR$/8.Games/src/com/codegym/games/spaceinvaders/gameobjects/Ship.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out.log" beforeDir="false" afterPath="$PROJECT_DIR$/out.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/8.Games/com/codegym/games/spaceinvaders/ShapeMatrix.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/8.Games/com/codegym/games/spaceinvaders/ShapeMatrix.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/8.Games/com/codegym/games/spaceinvaders/SpaceInvadersGame.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/8.Games/com/codegym/games/spaceinvaders/SpaceInvadersGame.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/8.Games/com/codegym/games/spaceinvaders/gameobjects/EnemyFleet.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/8.Games/com/codegym/games/spaceinvaders/gameobjects/EnemyFleet.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/8.Games/com/codegym/games/spaceinvaders/gameobjects/PlayerShip.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/8.Games/com/codegym/games/spaceinvaders/gameobjects/PlayerShip.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/8.Games/com/codegym/games/spaceinvaders/gameobjects/EnemyShip.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/8.Games/com/codegym/games/spaceinvaders/gameobjects/EnemyShip.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/8.Games/com/codegym/games/spaceinvaders/gameobjects/Ship.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/8.Games/com/codegym/games/spaceinvaders/gameobjects/Ship.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -460,7 +457,14 @@
       <option name="project" value="LOCAL" />
       <updated>1659004783958</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Added double shot bonus(lasting 5 shots)">
+      <created>1659092067977</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1659092067977</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -528,7 +532,8 @@
     <MESSAGE value="In progress(added stopping the game)" />
     <MESSAGE value="Finished game without improvements" />
     <MESSAGE value="Added option to be invincible" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added option to be invincible" />
+    <MESSAGE value="Added double shot bonus(lasting 5 shots)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added double shot bonus(lasting 5 shots)" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/Instruction.png">

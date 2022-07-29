@@ -18,10 +18,7 @@ public class SpaceInvadersGame extends Game
     public static final int DIFFICULTY = 5;
     private static final int PLAYER_BULLETS_MAX =1;
     private boolean isInvincible = false;
-
-    public boolean isInvincible() {
-        return isInvincible;
-    }
+    private boolean laserShot = false;
 
     private List<Bullet> enemyBullets;
     private List<Bullet> playerBullets;
@@ -37,6 +34,7 @@ public class SpaceInvadersGame extends Game
     private int animationsCount;
 
     private int score;
+    private boolean won ;
 
     @Override
     public void initialize()
@@ -54,6 +52,7 @@ public class SpaceInvadersGame extends Game
         playerShip = new PlayerShip();
         playerBullets = new ArrayList<Bullet>();
         isGameStopped = false;
+        won=false;
         animationsCount = 0;
         score = 0;
         showGrid(false);
@@ -221,6 +220,7 @@ public class SpaceInvadersGame extends Game
         if(isWin)
         {
             showMessageDialog(Color.ALICEBLUE,"SUCCESS",Color.GREEN,26);
+            won = true;
         }
         else
         {
@@ -239,9 +239,14 @@ public class SpaceInvadersGame extends Game
 
     @Override
     public void onKeyPress(Key key) {
-        if(key == Key.SPACE&&isGameStopped)
+        if(key == Key.SPACE&&isGameStopped&&!won)
         {
             createGame();
+        }
+        if(key == Key.SPACE&&isGameStopped&&won)
+        {
+            createGame();
+            setTurnTimer(20);
         }
         if(key == Key.SPACE)
         {
@@ -250,6 +255,15 @@ public class SpaceInvadersGame extends Game
             {
                 playerBullets.addAll(bullet);
             }
+        }
+        if(key == Key.ENTER&&laserShot==false)
+        {
+            List<Bullet> bullet = playerShip.fireLaser();
+            if(bullet != null && playerBullets.size() < PLAYER_BULLETS_MAX)
+            {
+                playerBullets.addAll(bullet);
+            }
+            laserShot = true;
         }
         if(key == Key.LEFT)
         {
