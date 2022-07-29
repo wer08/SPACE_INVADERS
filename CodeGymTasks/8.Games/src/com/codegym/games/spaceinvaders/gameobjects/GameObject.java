@@ -8,6 +8,7 @@ public class GameObject {
     public int width;
     public int height;
     public int[][] matrix;
+    public boolean isAlive = true;
 
     public GameObject(double x, double y) {
         this.x = x;

@@ -23,6 +23,7 @@ public class EnemyFleet
 
 
 
+
     public EnemyFleet()
     {
         createShips();
@@ -51,6 +52,10 @@ public class EnemyFleet
                 else if(random>=5&&random<10)
                 {
                     ships.add(new EnemyShipDoubleAttack(x*STEP,y*STEP +12));
+                }
+                else if(random>=10&&random<15)
+                {
+                    ships.add(new BlockadeShip(x*STEP,y*STEP +12));
                 }
                 else
                 {
@@ -176,6 +181,16 @@ public class EnemyFleet
                             }
                             ship.kill();
                             score += ship.score;
+                        }
+                        else if (ship instanceof BlockadeShip)
+                        {
+                            if(!(bullet instanceof Laser))
+                            {
+                                bullet.kill();
+                            }
+                            ship.kill();
+                            score += ship.score;
+                            Blockade.isVisible = true;
                         }
                         else
                         {

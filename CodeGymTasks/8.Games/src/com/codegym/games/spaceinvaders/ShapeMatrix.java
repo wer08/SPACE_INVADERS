@@ -11,6 +11,11 @@ public class ShapeMatrix {
             {6, 6, 6},
             {0, 6, 0}
     };
+    public static final int[][] ENEMYBLOCKADE = new int[][]{
+            {2, 0, 2},
+            {2, 2, 2},
+            {0, 2, 0}
+    };
 
     public static final int[][] ENEMY_INVINCIBILTY = new int[][]{
             {120, 0, 120},
@@ -40,6 +45,11 @@ public class ShapeMatrix {
             {0, 0, 5, 0, 0},
             {0, 5, 5, 5, 0},
             {5, 5, 5, 5, 5}
+    };
+    public static final int[][] BLOCKADE = new int[][]{
+
+
+            {5, 5, 5, 5, 5, 5, 5, 5,5, 5, 5, 5, 5, 5, 5, 5,5, 5, 5, 5, 5, 5, 5, 5,5, 5, 5, 5, 5, 5, 5, 5,5, 5, 5, 5, 5, 5, 5, 5,5, 5, 5, 5, 5, 5, 5, 5,5, 5, 5, 5, 5, 5, 5, 5,5, 5, 5, 5, 5, 5, 5, 5}
     };
 
     public static final int[][] BULLET = new int[][]{

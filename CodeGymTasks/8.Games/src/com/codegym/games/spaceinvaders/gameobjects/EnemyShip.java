@@ -12,7 +12,8 @@ public class EnemyShip extends Ship
 
 
 
-    public EnemyShip(double x, double y) {
+    public EnemyShip(double x, double y)
+    {
         super(x, y);
         setStaticView(ShapeMatrix.ENEMY);
     }

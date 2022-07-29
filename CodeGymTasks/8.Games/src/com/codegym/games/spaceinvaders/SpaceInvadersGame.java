@@ -1,10 +1,7 @@
 package com.codegym.games.spaceinvaders;
 
 import com.codegym.engine.cell.*;
-import com.codegym.games.spaceinvaders.gameobjects.Bullet;
-import com.codegym.games.spaceinvaders.gameobjects.EnemyFleet;
-import com.codegym.games.spaceinvaders.gameobjects.PlayerShip;
-import com.codegym.games.spaceinvaders.gameobjects.Star;
+import com.codegym.games.spaceinvaders.gameobjects.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,14 +14,14 @@ public class SpaceInvadersGame extends Game
     public static final int HEIGHT = 64;
     public static final int DIFFICULTY = 5;
     private static final int PLAYER_BULLETS_MAX =1;
-    private boolean isInvincible = false;
     private boolean laserShot = false;
+
+    private Blockade blockade;
 
     private List<Bullet> enemyBullets;
     private List<Bullet> playerBullets;
 
     private EnemyFleet enemyFleet;
-
     private List<Star> stars;
 
     private PlayerShip playerShip;
@@ -51,6 +48,7 @@ public class SpaceInvadersGame extends Game
         enemyBullets = new ArrayList<Bullet>();
         playerShip = new PlayerShip();
         playerBullets = new ArrayList<Bullet>();
+        blockade = new Blockade(0,WIDTH - playerShip.height -4);
         isGameStopped = false;
         won=false;
         animationsCount = 0;
@@ -79,6 +77,10 @@ public class SpaceInvadersGame extends Game
             }
         }
         playerShip.draw(this);
+        if(blockade.isVisible)
+        {
+            blockade.draw(this);
+        }
     }
     private void drawField()
     {
@@ -181,13 +183,13 @@ public class SpaceInvadersGame extends Game
                 count = 0;
             }
     }
+
     private void check()
     {
         playerShip.checkHit(enemyBullets);
         score += enemyFleet.checkHit(playerBullets);
         enemyFleet.deleteHiddenShips();
         removeDeadBullets();
-
         if(enemyFleet.getBottomBorder() >= playerShip.y)
         {
             PlayerShip.isInvincible = false;
