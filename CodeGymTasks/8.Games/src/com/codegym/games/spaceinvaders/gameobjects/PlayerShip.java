@@ -4,12 +4,14 @@ import com.codegym.games.spaceinvaders.Direction;
 import com.codegym.games.spaceinvaders.ShapeMatrix;
 import com.codegym.games.spaceinvaders.SpaceInvadersGame;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class PlayerShip extends Ship
 {
     public static boolean isInvincible = false;
     public boolean change = false;
+    public static boolean isHItDoubleShot = false;
 
     public static int count =0;
 
@@ -117,17 +119,27 @@ public class PlayerShip extends Ship
     }
 
     @Override
-    public Bullet fire()
+    public List<Bullet> fire()
     {
+        List<Bullet> bulletList = new ArrayList<>();
         if(!this.isAlive)
         {
             return null;
         }
+        else if(isHItDoubleShot)
+        {
+            System.out.println("DOUBLE SHOT ACTIVATED");
+            bulletList.add(new Bullet(x , y - ShapeMatrix.BULLET.length, Direction.UP));
+            bulletList.add(new Bullet(x + 4, y - ShapeMatrix.BULLET.length, Direction.UP));
+            return bulletList;
+        }
         else
         {
-            return new Bullet(x + 2, y - ShapeMatrix.BULLET.length, Direction.UP);
+            bulletList.add(new Bullet(x + 2, y - ShapeMatrix.BULLET.length, Direction.UP));
+            return bulletList;
         }
     }
+
 
     public void win()
     {

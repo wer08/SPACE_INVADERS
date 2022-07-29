@@ -3,6 +3,9 @@ package com.codegym.games.spaceinvaders.gameobjects;
 import com.codegym.games.spaceinvaders.Direction;
 import com.codegym.games.spaceinvaders.ShapeMatrix;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class EnemyShip extends Ship
 {
     public int score =15;
@@ -30,9 +33,11 @@ public class EnemyShip extends Ship
     }
 
     @Override
-    public Bullet fire()
+    public List<Bullet> fire()
     {
-        return new Bullet(x + 1, y + height,Direction.DOWN);
+        List<Bullet> bulletList = new ArrayList<>();
+        bulletList.add(new Bullet(x + 1, y + height,Direction.DOWN));
+        return bulletList;
     }
 
     @Override

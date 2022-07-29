@@ -56,11 +56,13 @@ public class SpaceInvadersGame extends Game
         isGameStopped = false;
         animationsCount = 0;
         score = 0;
+        showGrid(false);
         drawScene();
         setTurnTimer(40);
     }
     private void drawScene()
     {
+
         drawField();
         enemyFleet.draw(this);
         for (Bullet bullets:enemyBullets)
@@ -111,11 +113,10 @@ public class SpaceInvadersGame extends Game
         check();
         moveSpaceObjects();
         setScore(score);
-        Bullet bullet = enemyFleet.fire(this);
-
+        List<Bullet> bullet = enemyFleet.fire(this);
         if(bullet != null)
         {
-            enemyBullets.add(bullet);
+            enemyBullets.addAll(bullet);
         }
         drawScene();
     }
@@ -139,6 +140,7 @@ public class SpaceInvadersGame extends Game
             }
         }
     }
+    private int count = 0;
     private void removeDeadBullets()
     {
         ListIterator<Bullet> iterator = enemyBullets.listIterator();
@@ -154,6 +156,7 @@ public class SpaceInvadersGame extends Game
                 }
             }
         ListIterator<Bullet> iterator2 = playerBullets.listIterator();
+
             while (iterator2.hasNext())
             {
                 Bullet bullet = iterator2.next();
@@ -161,9 +164,22 @@ public class SpaceInvadersGame extends Game
                 {
                     if ( bullet.y + bullet.height < 0 || !bullet.isAlive)
                     {
-                        iterator2.remove();
+                        if(PlayerShip.isHItDoubleShot)
+                        {
+                            count++;
+                            iterator2.remove();
+                        }
+                        else
+                        {
+                            iterator2.remove();
+                        }
                     }
                 }
+            }
+            if(count >= 10)
+            {
+                PlayerShip.isHItDoubleShot = false;
+                count = 0;
             }
     }
     private void check()
@@ -172,8 +188,10 @@ public class SpaceInvadersGame extends Game
         score += enemyFleet.checkHit(playerBullets);
         enemyFleet.deleteHiddenShips();
         removeDeadBullets();
+
         if(enemyFleet.getBottomBorder() >= playerShip.y)
         {
+            PlayerShip.isInvincible = false;
             playerShip.kill();
         }
         if(enemyFleet.getShipCount() == 0)
@@ -194,6 +212,7 @@ public class SpaceInvadersGame extends Game
             stopGameWithDelay();
         }
     }
+
 
     private void stopGame(boolean isWin)
     {
@@ -226,10 +245,10 @@ public class SpaceInvadersGame extends Game
         }
         if(key == Key.SPACE)
         {
-            Bullet bullet = playerShip.fire();
+            List<Bullet> bullet = playerShip.fire();
             if(bullet != null && playerBullets.size() < PLAYER_BULLETS_MAX)
             {
-                playerBullets.add(bullet);
+                playerBullets.addAll(bullet);
             }
         }
         if(key == Key.LEFT)

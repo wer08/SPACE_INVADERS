@@ -48,6 +48,10 @@ public class EnemyFleet
                 {
                     ships.add(new EnemyShipInvincibility(x*STEP,y*STEP +12));
                 }
+                else if(random>=5&&random<10)
+                {
+                    ships.add(new EnemyShipDoubleAttack(x*STEP,y*STEP +12));
+                }
                 else
                 {
                     ships.add(new EnemyShip(x * STEP, y * STEP + 12));
@@ -119,7 +123,7 @@ public class EnemyFleet
 
         }
     }
-    public Bullet fire(Game game)
+    public List <Bullet> fire(Game game)
     {
         if(ships.isEmpty())
         {
@@ -156,6 +160,13 @@ public class EnemyFleet
                         {
                             PlayerShip.setInvincible(true);
                             PlayerShip.count = 0;
+                            bullet.kill();
+                            ship.kill();
+                            score += ship.score;
+                        }
+                        else if (ship instanceof EnemyShipDoubleAttack)
+                        {
+                            PlayerShip.isHItDoubleShot = true;
                             bullet.kill();
                             ship.kill();
                             score += ship.score;

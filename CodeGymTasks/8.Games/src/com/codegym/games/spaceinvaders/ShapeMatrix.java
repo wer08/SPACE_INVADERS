@@ -6,6 +6,11 @@ public class ShapeMatrix {
             {7, 7, 7},
             {0, 7, 0}
     };
+    public static final int[][] ENEMYDOUBLESHOT = new int[][]{
+            {6, 0, 6},
+            {6, 6, 6},
+            {0, 6, 0}
+    };
 
     public static final int[][] ENEMY_INVINCIBILTY = new int[][]{
             {120, 0, 120},

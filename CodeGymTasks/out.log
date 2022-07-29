@@ -1076,3 +1076,11 @@ java.lang.StringIndexOutOfBoundsException: String index out of range: -1
 2022-07-28 12:24:56 INFO  ApacheHttpClient.getTask(488) - responseCode = 200
 2022-07-28 12:24:57 INFO  ApacheHttpClient.completed(32) - responseCode = 200
 2022-07-28 12:24:57 INFO  ApacheHttpClient.getTask(488) - responseCode = 200
+2022-07-29 11:07:18 INFO  ProjectStartupHandler.runActivity(74) - ---------- Project opened ----------
+2022-07-29 11:07:18 INFO  ProjectStartupHandler.runActivity(75) - ---------- Version 3.57 ----------
+
+2022-07-29 11:07:18 INFO  ApacheHttpClient.isSessionAppropriateWithSecretKey(602) - Waiting for server response.
+2022-07-29 11:07:18 INFO  ApacheHttpClient.isSessionAppropriateWithSecretKey(602) - Waiting for server response.
+2022-07-29 11:07:18 INFO  ApacheHttpClient.refreshUserInfo(305) - responseCode = 200
+2022-07-29 11:07:18 INFO  ApacheHttpClient.refreshUserInfo(311) - User information received.
+2022-07-29 11:07:18 INFO  ApacheHttpClient.startGA(36) - GAService started.

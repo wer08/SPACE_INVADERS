@@ -10,10 +10,8 @@ public class Ship extends GameObject
 {
     public boolean isAlive = true;
 
-
     private List<int[][]> frames;
     private int frameIndex;
-
     private boolean loopAnimation = false;
     public Ship(double x, double y) {
         super(x, y);
@@ -26,7 +24,7 @@ public class Ship extends GameObject
         frameIndex = 0;
         setMatrix(viewFrame);
     }
-    public Bullet fire()
+    public List<Bullet> fire()
     {
         return null;
     }
