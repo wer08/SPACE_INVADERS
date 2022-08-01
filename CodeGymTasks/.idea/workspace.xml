@@ -1,22 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8a9c2848-0864-419d-ba1c-a0669c6ee00f" name="Default" comment="Added Laser(one shot for game)">
+    <list default="true" id="8a9c2848-0864-419d-ba1c-a0669c6ee00f" name="Default" comment="Blockade is showing(not doing anything yet)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/8.Games/src/com/codegym/games/spaceinvaders/ShapeMatrix.java" beforeDir="false" afterPath="$PROJECT_DIR$/8.Games/src/com/codegym/games/spaceinvaders/ShapeMatrix.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/8.Games/src/com/codegym/games/spaceinvaders/SpaceInvadersGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/8.Games/src/com/codegym/games/spaceinvaders/SpaceInvadersGame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/8.Games/src/com/codegym/games/spaceinvaders/gameobjects/EnemyFleet.java" beforeDir="false" afterPath="$PROJECT_DIR$/8.Games/src/com/codegym/games/spaceinvaders/gameobjects/EnemyFleet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/8.Games/src/com/codegym/games/spaceinvaders/gameobjects/EnemyShip.java" beforeDir="false" afterPath="$PROJECT_DIR$/8.Games/src/com/codegym/games/spaceinvaders/gameobjects/EnemyShip.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/8.Games/src/com/codegym/games/spaceinvaders/gameobjects/GameObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/8.Games/src/com/codegym/games/spaceinvaders/gameobjects/GameObject.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/8.Games/src/com/codegym/games/spaceinvaders/gameobjects/Ship.java" beforeDir="false" afterPath="$PROJECT_DIR$/8.Games/src/com/codegym/games/spaceinvaders/gameobjects/Ship.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out.log" beforeDir="false" afterPath="$PROJECT_DIR$/out.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/8.Games/com/codegym/games/spaceinvaders/ShapeMatrix.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/8.Games/com/codegym/games/spaceinvaders/ShapeMatrix.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/8.Games/com/codegym/games/spaceinvaders/SpaceInvadersGame.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/8.Games/com/codegym/games/spaceinvaders/SpaceInvadersGame.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/8.Games/com/codegym/games/spaceinvaders/gameobjects/EnemyFleet.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/8.Games/com/codegym/games/spaceinvaders/gameobjects/EnemyFleet.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/8.Games/com/codegym/games/spaceinvaders/gameobjects/EnemyShip.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/8.Games/com/codegym/games/spaceinvaders/gameobjects/EnemyShip.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/8.Games/com/codegym/games/spaceinvaders/gameobjects/GameObject.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/8.Games/com/codegym/games/spaceinvaders/gameobjects/GameObject.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/8.Games/com/codegym/games/spaceinvaders/gameobjects/PlayerShip.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/8.Games/com/codegym/games/spaceinvaders/gameobjects/PlayerShip.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/8.Games/com/codegym/games/spaceinvaders/gameobjects/Ship.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/8.Games/com/codegym/games/spaceinvaders/gameobjects/Ship.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -484,7 +472,14 @@
       <option name="project" value="LOCAL" />
       <updated>1659097282835</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Blockade is showing(not doing anything yet)">
+      <created>1659108385191</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1659108385191</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -532,7 +527,19 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="master" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
@@ -554,7 +561,8 @@
     <MESSAGE value="Added option to be invincible" />
     <MESSAGE value="Added double shot bonus(lasting 5 shots)" />
     <MESSAGE value="Added Laser(one shot for game)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added Laser(one shot for game)" />
+    <MESSAGE value="Blockade is showing(not doing anything yet)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Blockade is showing(not doing anything yet)" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/Instruction.png">

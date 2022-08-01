@@ -187,6 +187,7 @@ public class SpaceInvadersGame extends Game
     private void check()
     {
         playerShip.checkHit(enemyBullets);
+        blockade.checkHit(enemyBullets);
         score += enemyFleet.checkHit(playerBullets);
         enemyFleet.deleteHiddenShips();
         removeDeadBullets();

@@ -1092,3 +1092,15 @@ java.lang.StringIndexOutOfBoundsException: String index out of range: -1
 2022-07-29 13:59:15 INFO  ApacheHttpClient.refreshUserInfo(305) - responseCode = 200
 2022-07-29 13:59:15 INFO  ApacheHttpClient.refreshUserInfo(311) - User information received.
 2022-07-29 13:59:15 INFO  ApacheHttpClient.startGA(36) - GAService started.
+2022-07-29 17:37:22 INFO  ProjectStartupHandler.projectClosing(155) - ---------- Project closed ----------
+
+2022-07-29 17:37:23 INFO  ApacheHttpClient.getTask(488) - responseCode = 200
+2022-07-29 17:37:23 INFO  PluginProjectService.dispose(41) - PluginProjectService for disposed.
+2022-08-01 09:48:38 INFO  ProjectStartupHandler.runActivity(74) - ---------- Project opened ----------
+2022-08-01 09:48:38 INFO  ProjectStartupHandler.runActivity(75) - ---------- Version 3.57 ----------
+
+2022-08-01 09:48:38 INFO  ApacheHttpClient.isSessionAppropriateWithSecretKey(602) - Waiting for server response.
+2022-08-01 09:48:38 INFO  ApacheHttpClient.isSessionAppropriateWithSecretKey(602) - Waiting for server response.
+2022-08-01 09:48:39 INFO  ApacheHttpClient.refreshUserInfo(305) - responseCode = 200
+2022-08-01 09:48:39 INFO  ApacheHttpClient.refreshUserInfo(311) - User information received.
+2022-08-01 09:48:39 INFO  ApacheHttpClient.startGA(36) - GAService started.
